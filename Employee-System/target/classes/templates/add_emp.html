@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.com">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title>Home page</title>
+</head>
+<body>
+<!--Navbar-->
+
+<div th:if=${session.msg}>
+  <div class="alert alert-success" role="alert" th:text="${session.msg}">
+  </div>
+
+  <th:block th:text = "${#session.removeAttribute('msg')}"></th:block>
+
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="/index">Employee manager</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/index">Home <span class="sr-only">(current)</span></a>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="">Job applications</a>
+      </li>
+
+    </ul>
+
+  </div>
+</nav>
+<!--navbar-->
+
+<form th:action ="@{/register}" method="post">
+
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email">
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="inputCity">City</label>
+      <input type="text" class="form-control" id="inputCity" name="city">
+    </div>
+
+  </div>
+  <div class="form-row">
+  <div class="form-group col-md-4">
+    <label for="inputAddress">Full name</label>
+    <input type="text" class="form-control" id="inputAddress"  name="name" placeholder="John Doe">
+  </div>
+    <div class="form-group col-md-4">
+      <label for="inputAddress">Phone number</label>
+      <input type="text" class="form-control" id="inputPhone" name="phoneNum" placeholder="+40">
+    </div>
+  </div>
+  <div class="form-row">
+
+    <div class="form-group col-md-4">
+      <label for="inputDepartment">Department</label>
+      <select id="inputDepartment" class="form-control" name="department">
+        <option selected>Choose...</option>
+        <option>Front end</option>
+        <option>Back end</option>
+        <option>Sales</option>
+        <option>Management</option>
+        <option>QA</option>
+        <option>Human Resources</option>
+        <option>Services</option>
+        <option>...</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="inputPosition">Position</label>
+      <select id="inputPosition" class="form-control" name="position">
+        <option selected>Choose...</option>
+        <option>Junior</option>
+        <option>Mid</option>
+        <option>Senior</option>
+        <option>Lead</option>
+        <option>...</option>
+      </select>
+    </div>
+
+  </div>
+  <div class ="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputSalary">Salary</label>
+      <input type="text" class="form-control" id="inputSalary" name="salary" placeholder="0.0 $">
+    </div>
+    <div class="form-group col-md-4">
+    <label for="inputGender">Gender</label>
+    <select id="inputGender" class="form-control" name="gender">
+      <option selected>Choose...</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Rather not say</option>
+    </select>
+  </div>
+  </div>
+  <button type="submit" class="btn btn-primary" href="/index">Submit</button>
+</form>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
